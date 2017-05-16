@@ -1,0 +1,151 @@
+<h1>{{ question.question_text }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' question.id %}" method="post">
+{% csrf_token %}
+{% for choice in question.choice_set.all %}
+<h3>{{choice.choice_text}}</h3>
+{% if choice.id == 4 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>水餃</td>
+		<td>50</td>
+	</tr>
+	<tr>
+		<td>蛋花湯</td>
+		<td>30</td>
+	</tr>
+</table>
+{% endif %}
+
+{% if choice.id == 5 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>紅茶</td>
+		<td>20</td>
+	</tr>
+	<tr>
+		<td>綠茶</td>
+		<td>20</td>
+	</tr>
+</table>
+{% endif %}
+
+{% if choice.id == 6 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>商品</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>蛋塔</td>
+		<td>20</td>
+	</tr>
+	<tr>
+		<td>蛋糕</td>
+		<td>300</td>
+	</tr>
+</table>
+{% endif %}
+
+{% if choice.id == 7 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>商品</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>儲值</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>茶葉蛋</td>
+		<td>10</td>
+	</tr>
+</table>
+{% endif %}
+
+{% if choice.id == 8 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>A套餐</td>
+		<td>85</td>
+	</tr>
+	<tr>
+		<td>B套餐</td>
+		<td>75</td>
+	</tr>
+</table>
+{% endif %}
+
+
+{% if choice.id == 9 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>牛肉片麵</td>
+		<td>75</td>
+	</tr>
+	<tr>
+		<td>炒泡麵</td>
+		<td>65</td>
+	</tr>
+</table>
+{% endif %}
+
+{% if choice.id == 10 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>A餐</td>
+		<td>100</td>
+	</tr>
+	<tr>
+		<td>B餐</td>
+		<td>200</td>
+	</tr>
+</table>
+{% endif %}
+
+
+{% if choice.id == 11 %}
+<table style="border:3px #FFAC55 solid;padding:5px;" rules="all" cellpadding='5';>
+	<tr>
+		<th>菜名</th>
+		<th>價錢</th>
+	</tr>
+	<tr>
+		<td>鴨腿飯</td>
+		<td>75</td>
+	</tr>
+	<tr>
+		<td>三寶飯</td>
+		<td>65</td>
+	</tr>
+</table>
+{% endif %}
+
+    <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+    <label for="choice{{ forloop.counter }}">please vote me</label><br />
+{% endfor %}
+<input type="submit" value="Vote" />
+</form>
